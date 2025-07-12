@@ -1,29 +1,45 @@
 // En src/App.tsx
+import { Routes, Route } from 'react-router-dom';
+import { KnowledgeGraphProvider, useAppContainer } from './context/KnowledgeGraphContext';
 
-function App() {
+// 1. Este es tu código anterior, ahora como un componente interno.
+function MainLayout() {
+  const { isLoading } = useAppContainer(); // Usamos el hook para saber si los datos están listos
+
+  // Mostramos un mensaje de carga mientras se obtienen los datos.
+  if (isLoading) {
+    return (
+      <div className="flex h-screen w-screen items-center justify-center">
+        <p className="text-lg text-primary animate-pulse">Cargando conocimiento...</p>
+      </div>
+    );
+  }
+
+  // Una vez cargado, mostramos el layout principal.
+  // Por ahora, es solo el título, pero aquí irán los paneles.
   return (
-    // 'p-8' ya estaba bien. Aplica padding.
     <div className="p-8">
-      {/* 
-        AQUÍ ESTÁ LA MAGIA:
-        - Reemplazamos el style="" por clases de utilidad.
-        - 'text-4xl': Para el tamaño de la fuente.
-        - 'font-serif': Aplica la fuente serif que definiste en @theme.
-        - 'text-primary': Aplica el color primario que definiste en @theme.
-        El orden de las clases no importa.
-      */}
       <h1 className="text-4xl font-serif text-primary">
         Glosario de Filosofía Trascendental
       </h1>
-      
-      {/* 
-        Este párrafo heredará la fuente y color por defecto del `body`,
-        tal y como lo configuraste en `index.css`.
-      */}
       <p className="mt-4">
-        Entorno configurado correctamente.
+        Datos cargados. Listo para construir la UI.
       </p>
     </div>
+  );
+}
+
+// 2. Este es el componente principal que se exporta.
+function App() {
+  return (
+    // 3. El proveedor de contexto envuelve todo.
+    <KnowledgeGraphProvider>
+      {/* 4. El sistema de rutas define qué se muestra. */}
+      <Routes>
+        {/* Para cualquier ruta, muestra nuestro MainLayout. */}
+        <Route path="*" element={<MainLayout />} />
+      </Routes>
+    </KnowledgeGraphProvider>
   );
 }
 
