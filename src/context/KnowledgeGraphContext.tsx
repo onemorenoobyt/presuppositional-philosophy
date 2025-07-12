@@ -1,5 +1,5 @@
 // En src/context/KnowledgeGraphContext.tsx
-import React, { createContext, useContext, useMemo, useEffect } from 'react';
+import React, { createContext, useContext, useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import type { EnrichedTerm } from '../types';
 import { useKnowledgeGraph } from '../hooks/useKnowledgeGraph';
