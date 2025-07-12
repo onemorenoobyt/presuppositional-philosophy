@@ -1,0 +1,25 @@
+/* En src/index.css */
+@import "tailwindcss";
+
+@theme {
+  /*
+   * CORRECTO: Definimos cada token como una variable CSS nativa.
+   * El motor de Tailwind las leerá y generará las clases (text-primary, bg-primary, etc.)
+  */
+  --color-background: oklch(98% 0 0);
+  --color-text: oklch(20% 0 0);
+  --color-primary: oklch(65% 0.23 264);
+
+  --font-family-sans: 'Inter Variable', sans-serif;
+  --font-family-serif: 'Source Serif Pro', serif;
+}
+
+/* 
+ * La función theme() sigue funcionando. Tailwind ahora la usa
+ * para buscar la variable CSS correspondiente.
+*/
+body {
+  background-color: theme('colors.background'); /* Busca --color-background */
+  color: theme('colors.text');                 /* Busca --color-text */
+  font-family: theme('fontFamily.sans');         /* Busca --font-family-sans */
+}
