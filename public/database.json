@@ -5,7 +5,32 @@
     "name": "Postulado 1. Principio de contradicción",
     "definition": "En todo juicio problemático, es imposible que el predicado contradiga al sujeto.",
     "displayName": "Principio de contradicción",
-    "used_by": ["proposicion-2-1"],
+    "used_by": [
+      "proposicion-2-1",
+      "proposicion-2-3"
+    ],
+    "used_terms": [],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "postulado-2",
+    "type": "Postulado",
+    "name": "Postulado 2. Principio de suficiente fundamento",
+    "definition": "En todo juicio asertórico, su verdad depende de un fundamento suficiente que la sustente tal que si el fundamento es verdad, entonces el juicio adquiere asertóricamente un valor de verdad.",
+    "displayName": "Principio de suficiente fundamento",
+    "used_by": [],
+    "used_terms": [],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "postulado-3",
+    "type": "Postulado",
+    "name": "Postulado 3. Principio de tercero excluso",
+    "definition": "En todo juicio apodíctico, su valor de verdad es necesariamente o verdadero o falso.",
+    "displayName": "Principio de tercero excluso",
+    "used_by": [],
     "used_terms": [],
     "hasProof": false,
     "proofFor": null
@@ -16,7 +41,11 @@
     "name": "Definición 1. Juicio analítico",
     "definition": "Juicio categórico en el que la intensión de la concepción del predicado está contenida en la intensión de la concepción del sujeto.",
     "displayName": "Juicio analítico",
-    "used_by": ["proposicion-2-1"],
+    "used_by": [
+      "proposicion-2-1",
+      "proposicion-2-2",
+      "proposicion-2-10"
+    ],
     "used_terms": [],
     "hasProof": false,
     "proofFor": null
@@ -28,7 +57,698 @@
     "definition": "Los juicios analíticos son apodícticamente verdaderos por medio meramente del principio de contradicción, puesto que su falsificación es lógicamente imposible.",
     "displayName": "Proposición 2.1",
     "used_by": [],
-    "used_terms": ["definicion-1", "postulado-1"],
+    "used_terms": [
+      "definicion-1",
+      "postulado-1"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-2",
+    "type": "Proposición",
+    "name": "Proposición 2.2",
+    "definition": "Los juicios analíticos no son suficientes para formar cogniciones de los objetos.",
+    "displayName": "Proposición 2.2",
+    "used_by": [],
+    "used_terms": [
+      "definicion-1",
+      "definicion-32"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-2",
+    "type": "Definición",
+    "name": "Definición 2. Juicio sintético",
+    "definition": "Juicio categórico en el que la intensión de la concepción del predicado no está contenida en la intensión de la concepción del sujeto.",
+    "displayName": "Juicio sintético",
+    "used_by": [
+      "proposicion-2-3",
+      "proposicion-2-4",
+      "proposicion-2-6",
+      "proposicion-2-8",
+      "proposicion-2-9",
+      "proposicion-2-11",
+      "proposicion-2-12",
+      "proposicion-2-13",
+      "proposicion-2-14",
+      "proposicion-2-15",
+      "proposicion-2-19",
+      "definicion-28",
+      "proposicion-3-8",
+      "proposicion-3-9"
+    ],
+    "used_terms": [],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-3",
+    "type": "Proposición",
+    "name": "Proposición 2.3",
+    "definition": "El principio de contradicción no es condición suficiente para explicar la verdad de un juicio sintético.",
+    "displayName": "Proposición 2.3",
+    "used_by": [],
+    "used_terms": [
+      "postulado-1",
+      "definicion-2"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-4",
+    "type": "Proposición",
+    "name": "Proposición 2.4",
+    "definition": "Todo juicio de la experiencia es un juicio sintético.",
+    "displayName": "Proposición 2.4",
+    "used_by": [],
+    "used_terms": [
+      "definicion-33",
+      "definicion-2"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-5",
+    "type": "Proposición",
+    "name": "Proposición 2.5",
+    "definition": "Todos los juicios de la experiencia son verdad en la medida en la que el significado de sus concepciones se adecua a los objetos de la experiencia a los que el juicio se refiere.",
+    "displayName": "Proposición 2.5",
+    "used_by": [],
+    "used_terms": [
+      "definicion-33",
+      "postulado-5",
+      "definicion-10"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-6",
+    "type": "Proposición",
+    "name": "Proposición 2.6",
+    "definition": "Todos los juicios sintéticos verdaderos presuponen una noción de verdad que refiera a cosas.",
+    "displayName": "Proposición 2.6",
+    "used_by": [],
+    "used_terms": [
+      "definicion-2",
+      "postulado-5",
+      "atomo-logico-2"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "postulado-4",
+    "type": "Postulado",
+    "name": "Postulado 4. Postulado de la noción de modelo",
+    "definition": "El modelo de filosofía trascendental contiene el género representación.",
+    "displayName": "Postulado de la noción de modelo",
+    "used_by": [],
+    "used_terms": [
+      "atomo-logico-1"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "postulado-5",
+    "type": "Postulado",
+    "name": "Postulado 5. Postulado de la noción de verdad",
+    "definition": "La verdad, $\\mathbb{V}(\\mathcal{R}, \\mathcal{C}_{\\mathcal{R}})$, es el acuerdo de una representación, $\\mathcal{R}$, con la cosa a la que ésta se refiere, $\\mathcal{C}_{\\mathcal{R}} = \\left\\lbrace \\mathcal{C} ~|~ \\mathcal{R} \\rightarrow \\mathcal{C} \\right\\rbrace$.",
+    "displayName": "Postulado de la noción de verdad",
+    "used_by": [
+      "proposicion-2-5",
+      "proposicion-2-6",
+      "demostracion-teorema-1",
+      "demostracion-teorema-3"
+    ],
+    "used_terms": [
+      "atomo-logico-1",
+      "atomo-logico-2"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "atomo-logico-1",
+    "type": "Átomo lógico",
+    "name": "Átomo gnoseológico 1. Representación",
+    "definition": "Este término es un átomo gnoseológico y por tanto no se define.",
+    "displayName": "Representación",
+    "used_by": [
+      "postulado-4",
+      "postulado-5",
+      "definicion-3",
+      "proposicion-2-7",
+      "definicion-16",
+      "definicion-17",
+      "definicion-23",
+      "definicion-24",
+      "definicion-25",
+      "definicion-26",
+      "demostracion-proposicion-4-4",
+      "definicion-32",
+      "definicion-44",
+      "definicion-45"
+    ],
+    "used_terms": [],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "atomo-logico-2",
+    "type": "Átomo lógico",
+    "name": "Átomo gnoseológico 2. Cosa",
+    "definition": "Este término es un átomo gnoseológico y por tanto no se define.",
+    "displayName": "Cosa",
+    "used_by": [
+      "proposicion-2-6",
+      "postulado-5",
+      "definicion-3",
+      "proposicion-2-7",
+      "proposicion-2-17",
+      "definicion-10",
+      "definicion-11",
+      "proposicion-4-4",
+      "demostracion-proposicion-4-5",
+      "demostracion-proposicion-4-6",
+      "demostracion-proposicion-4-7",
+      "axioma-5",
+      "definicion-32",
+      "proposicion-4-13",
+      "proposicion-4-16",
+      "definicion-29",
+      "definicion-38",
+      "definicion-45",
+      "definicion-57"
+    ],
+    "used_terms": [],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-3",
+    "type": "Definición",
+    "name": "Definición 3. Intuición",
+    "definition": "Representación que refiere a las cosas de manera inmediata.",
+    "displayName": "Intuición",
+    "used_by": [
+      "proposicion-2-7",
+      "proposicion-2-8",
+      "definicion-12",
+      "definicion-13",
+      "demostracion-proposicion-4-4",
+      "demostracion-proposicion-4-5",
+      "demostracion-proposicion-4-6",
+      "demostracion-proposicion-4-7",
+      "proposicion-4-13",
+      "teorema-6",
+      "demostracion-teorema-6"
+    ],
+    "used_terms": [
+      "atomo-logico-1",
+      "atomo-logico-2"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-7",
+    "type": "Proposición",
+    "name": "Proposición 2.7",
+    "definition": "Toda representación que refiera a una cosa debe referir de alguna manera a una intuición.",
+    "displayName": "Proposición 2.7",
+    "used_by": [],
+    "used_terms": [
+      "atomo-logico-1",
+      "atomo-logico-2",
+      "definicion-3"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-8",
+    "type": "Proposición",
+    "name": "Proposición 2.8",
+    "definition": "Toda cognición verdadera o juicio sintético verdadero debe referir a una intuición.",
+    "displayName": "Proposición 2.8",
+    "used_by": [],
+    "used_terms": [
+      "definicion-32",
+      "definicion-2",
+      "definicion-3"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-4",
+    "type": "Definición",
+    "name": "Definición 4. Juicio a posteriori",
+    "definition": "Un juicio es verdadero a posteriori si el origen de la certeza de su verdad procede de experiencias particulares.",
+    "displayName": "Juicio a posteriori",
+    "used_by": [
+      "proposicion-2-9"
+    ],
+    "used_terms": [
+      "definicion-33"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-5",
+    "type": "Definición",
+    "name": "Definición 5. Juicio a priori",
+    "definition": "Un juicio es verdadero a priori si el origen de la certeza de su verdad no procede de ninguna experiencia particular.",
+    "displayName": "Juicio a priori",
+    "used_by": [
+      "proposicion-2-10",
+      "proposicion-2-11",
+      "proposicion-2-12",
+      "proposicion-2-13",
+      "proposicion-2-14",
+      "proposicion-2-15"
+    ],
+    "used_terms": [
+      "definicion-33"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-9",
+    "type": "Proposición",
+    "name": "Proposición 2.9",
+    "definition": "Todo juicio verdadero a posteriori es un juicio sintético.",
+    "displayName": "Proposición 2.9",
+    "used_by": [],
+    "used_terms": [
+      "definicion-4",
+      "definicion-2"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-10",
+    "type": "Proposición",
+    "name": "Proposición 2.10",
+    "definition": "Todo juicio analítico es un juicio verdadero a priori.",
+    "displayName": "Proposición 2.10",
+    "used_by": [],
+    "used_terms": [
+      "definicion-1",
+      "definicion-5"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-11",
+    "type": "Proposición",
+    "name": "Proposición 2.11",
+    "definition": "Toda la matemática pura está compuesta por juicios sintéticos a priori.",
+    "displayName": "Proposición 2.11",
+    "used_by": [],
+    "used_terms": [
+      "definicion-2",
+      "definicion-5"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-12",
+    "type": "Proposición",
+    "name": "Proposición 2.12",
+    "definition": "Toda la física presupone principios fundamentales que son juicios sintéticos a priori.",
+    "displayName": "Proposición 2.12",
+    "used_by": [],
+    "used_terms": [
+      "definicion-2",
+      "definicion-5"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-13",
+    "type": "Proposición",
+    "name": "Proposición 2.13",
+    "definition": "Toda la metafísica debería estar compuesta por juicios sintéticos a priori.",
+    "displayName": "Proposición 2.13",
+    "used_by": [],
+    "used_terms": [
+      "definicion-2",
+      "definicion-5"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-14",
+    "type": "Proposición",
+    "name": "Proposición 2.14",
+    "definition": "El principal problema de la gnoseología es responder a la pregunta: ¿Cómo son posibles los juicios sintéticos a priori?",
+    "displayName": "Proposición 2.14",
+    "used_by": [],
+    "used_terms": [
+      "definicion-2",
+      "definicion-5"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-15",
+    "type": "Proposición",
+    "name": "Proposición 2.15",
+    "definition": "Los juicios sintéticos a priori no poseen necesidad absoluta. No son, por lo tanto, verdad absoluta.",
+    "displayName": "Proposición 2.15",
+    "used_by": [],
+    "used_terms": [
+      "definicion-2",
+      "definicion-5"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-6",
+    "type": "Definición",
+    "name": "Definición 6. Agnosticismo trascendental",
+    "definition": "Tesis por la cual toda necesidad en la certeza de la verdad no es una verdad absoluta sino una verdad condicionada a la facultad de cognición.",
+    "displayName": "Agnosticismo trascendental",
+    "used_by": [
+      "proposicion-2-16"
+    ],
+    "used_terms": [],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "postulado-6",
+    "type": "Postulado",
+    "name": "Postulado 6. Postulado de la noción de completitud",
+    "definition": "El modelo de filosofía trascendental se completa con las representaciones originadas por las facultades gnoseológicas: sensibilidad y entendimiento.",
+    "displayName": "Postulado de la noción de completitud",
+    "used_by": [
+      "demostracion-teorema-1",
+      "demostracion-teorema-3"
+    ],
+    "used_terms": [
+      "atomo-logico-3",
+      "atomo-logico-4"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "atomo-logico-3",
+    "type": "Átomo lógico",
+    "name": "Átomo gnoseológico 3. Sensibilidad",
+    "definition": "Facultad gnoseológica de la receptividad. Este término es un átomo gnoseológico y no se define.",
+    "displayName": "Sensibilidad",
+    "used_by": [
+      "postulado-6",
+      "definicion-8",
+      "definicion-9",
+      "axioma-1",
+      "definicion-13",
+      "proposicion-3-2",
+      "proposicion-4-9",
+      "proposicion-4-10",
+      "proposicion-4-11",
+      "proposicion-4-13",
+      "axioma-5",
+      "demostracion-proposicion-4-12"
+    ],
+    "used_terms": [],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "atomo-logico-4",
+    "type": "Átomo lógico",
+    "name": "Átomo gnoseológico 4. Entendimiento",
+    "definition": "Facultad gnoseológica de la espontaneidad. Este término es un átomo gnoseológico y no se define.",
+    "displayName": "Entendimiento",
+    "used_by": [
+      "postulado-6",
+      "definicion-7",
+      "definicion-9",
+      "definicion-23",
+      "definicion-24",
+      "definicion-25",
+      "definicion-26",
+      "definicion-27",
+      "demostracion-proposicion-4-3",
+      "demostracion-proposicion-4-4",
+      "definicion-28",
+      "proposicion-4-12",
+      "proposicion-4-13",
+      "proposicion-4-14",
+      "demostracion-proposicion-4-15",
+      "demostracion-proposicion-4-17",
+      "demostracion-teorema-5"
+    ],
+    "used_terms": [],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-7",
+    "type": "Definición",
+    "name": "Definición 7. Representación intelectual",
+    "definition": "Representación originada en el entendimiento.",
+    "displayName": "Representación intelectual",
+    "used_by": [
+      "proposicion-4-4",
+      "definicion-23",
+      "definicion-24"
+    ],
+    "used_terms": [
+      "atomo-logico-4"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-8",
+    "type": "Definición",
+    "name": "Definición 8. Representación sensible",
+    "definition": "Representación originada en la sensibilidad.",
+    "displayName": "Representación sensible",
+    "used_by": [
+      "demostracion-proposicion-4-9",
+      "definicion-43",
+      "definicion-45"
+    ],
+    "used_terms": [
+      "atomo-logico-3"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-9",
+    "type": "Definición",
+    "name": "Definición 9. Sujeto gnoseológico",
+    "definition": "Combinación de las facultades gnoseológicas, sensibilidad ($\\mathcal{S}$) y entendimiento ($\\mathcal{E}$), y todo lo que se puede originar o referir a través de ellas ($\\mathbb{ST} = \\mathcal{S} \\bigoplus \\mathcal{E}$)."
+    ,
+    "displayName": "Sujeto gnoseológico",
+    "used_by": [
+      "proposicion-2-16",
+      "proposicion-2-17",
+      "proposicion-2-18"
+    ],
+    "used_terms": [
+      "atomo-logico-3",
+      "atomo-logico-4"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-10",
+    "type": "Definición",
+    "name": "Definición 10. Objeto",
+    "definition": "Cosa cognoscible.",
+    "displayName": "Objeto",
+    "used_by": [
+      "proposicion-2-5",
+      "proposicion-2-16",
+      "proposicion-2-17",
+      "demostracion-proposicion-4-16",
+      "definicion-34",
+      "proposicion-4-13",
+      "proposicion-4-15",
+      "demostracion-proposicion-4-18",
+      "demostracion-proposicion-4-19",
+      "proposicion-4-20",
+      "teorema-5",
+      "corolario-5-4",
+      "teorema-9",
+      "teorema-10",
+      "teorema-11",
+      "teorema-12",
+      "corolario-12-2"
+    ],
+    "used_terms": [
+      "atomo-logico-2"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-16",
+    "type": "Proposición",
+    "name": "Proposición 2.16",
+    "definition": "Bajo el idealismo trascendental, los límites de la cognición son también los límites del sujeto gnoseológico.",
+    "displayName": "Proposición 2.16",
+    "used_by": [],
+    "used_terms": [
+      "definicion-6",
+      "definicion-32",
+      "definicion-9"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-17",
+    "type": "Proposición",
+    "name": "Proposición 2.17",
+    "definition": "La objetividad, es decir, toda referencia a objetos cognoscibles, está sujeta a las condiciones necesarias del sujeto gnoseológico.",
+    "displayName": "Proposición 2.17",
+    "used_by": [],
+    "used_terms": [
+      "definicion-10",
+      "atomo-logico-2",
+      "definicion-9"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-11",
+    "type": "Definición",
+    "name": "Definición 11. Cosa en sí misma",
+    "definition": "Cosa absolutamente independiente de las facultades cognoscitivas.",
+    "displayName": "Cosa en sí misma",
+    "used_by": [
+      "proposicion-2-18",
+      "proposicion-2-19",
+      "demostracion-teorema-1",
+      "demostracion-teorema-3"
+    ],
+    "used_terms": [
+      "atomo-logico-2"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-18",
+    "type": "Proposición",
+    "name": "Proposición 2.18",
+    "definition": "Las cosas en sí mismas son extrínsecas al sujeto trascendental.",
+    "displayName": "Proposición 2.18",
+    "used_by": [],
+    "used_terms": [
+      "definicion-11",
+      "definicion-9"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-19",
+    "type": "Proposición",
+    "name": "Proposición 2.19",
+    "definition": "Todo juicio sintético sobre las cosas en sí mismas es gnoseológicamente indecidible.",
+    "displayName": "Proposición 2.19",
+    "used_by": [],
+    "used_terms": [
+      "definicion-2",
+      "definicion-11"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-12",
+    "type": "Definición",
+    "name": "Definición 12. Multiplicidad de la intuición",
+    "definition": "Representaciones que componen una intuición.",
+    "displayName": "Multiplicidad de la intuición",
+    "used_by": [
+      "axioma-1",
+      "definicion-13",
+      "axioma-4",
+      "definicion-27",
+      "demostracion-proposicion-4-3",
+      "demostracion-proposicion-4-7",
+      "proposicion-4-7",
+      "proposicion-4-14",
+      "definicion-35",
+      "proposicion-4-15",
+      "proposicion-4-16",
+      "definicion-37",
+      "proposicion-4-17",
+      "definicion-38",
+      "demostracion-proposicion-4-20",
+      "teorema-5",
+      "definicion-42",
+      "definicion-43",
+      "definicion-46",
+      "corolario-7-1"
+    ],
+    "used_terms": [
+      "definicion-3"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "axioma-1",
+    "type": "Axioma",
+    "name": "Axioma 1. Axioma empirista",
+    "definition": "La sensibilidad provee de una multiplicidad de la intuición.",
+    "displayName": "Axioma empirista",
+    "used_by": [
+      "proposicion-3-1",
+      "demostracion-teorema-1",
+      "demostracion-teorema-3",
+      "demostracion-proposicion-4-7",
+      "demostracion-proposicion-4-9",
+      "demostracion-proposicion-4-17",
+      "demostracion-teorema-5"
+    ],
+    "used_terms": [
+      "atomo-logico-3",
+      "definicion-12"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-3-1",
+    "type": "Proposición",
+    "name": "Proposición 3.1",
+    "definition": "La filosofía trascendental, en tanto que presupone el axioma empirista, es también un modelo empirista de filosofía.",
+    "displayName": "Proposición 3.1",
+    "used_by": [],
+    "used_terms": [
+      "axioma-1"
+    ],
     "hasProof": false,
     "proofFor": null
   },
@@ -38,10 +758,346 @@
     "name": "Definición 13. Intuición sensible",
     "definition": "Intuición cuya multiplicidad de la intuición se origina en la sensibilidad.",
     "displayName": "Intuición sensible",
-    "used_by": ["teorema-2", "axioma-3"],
-    "used_terms": ["definicion-3", "definicion-12", "atomo-logico-3"],
+    "used_by": [
+      "proposicion-3-2",
+      "definicion-14",
+      "definicion-15",
+      "proposicion-3-3",
+      "proposicion-3-5",
+      "demostracion-teorema-2",
+      "demostracion-teorema-4",
+      "teorema-6"
+    ],
+    "used_terms": [
+      "definicion-3",
+      "definicion-12",
+      "atomo-logico-3"
+    ],
     "hasProof": false,
     "proofFor": null
+  },
+  {
+    "id": "proposicion-3-2",
+    "type": "Proposición",
+    "name": "Proposición 3.2",
+    "definition": "La intuición sensible es una representación gnoseológicamente posible, puesto que puede ser provista por la sensibilidad.",
+    "displayName": "Proposición 3.2",
+    "used_by": [],
+    "used_terms": [
+      "definicion-13",
+      "atomo-logico-3"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-14",
+    "type": "Definición",
+    "name": "Definición 14. Morfé",
+    "definition": "Condición de posibilidad (forma) de la intuición sensible.",
+    "displayName": "Morfé",
+    "used_by": [
+      "proposicion-3-3",
+      "proposicion-3-5",
+      "proposicion-3-7",
+      "axioma-2",
+      "demostracion-teorema-2",
+      "axioma-3",
+      "demostracion-teorema-4",
+      "demostracion-teorema-5",
+      "corolario-5-3",
+      "definicion-44",
+      "axioma-7",
+      "axioma-8",
+      "demostracion-teorema-6",
+      "corolario-6-1",
+      "definicion-50"
+    ],
+    "used_terms": [
+      "definicion-13"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-15",
+    "type": "Definición",
+    "name": "Definición 15. Sensación",
+    "definition": "Condición de factualidad (materia) de la intuición sensible.",
+    "displayName": "Sensación",
+    "used_by": [
+      "proposicion-3-3",
+      "definicion-16",
+      "definicion-17",
+      "proposicion-3-5",
+      "demostracion-teorema-1",
+      "demostracion-teorema-2",
+      "demostracion-teorema-3",
+      "demostracion-teorema-4",
+      "demostracion-teorema-5",
+      "axioma-9",
+      "axioma-10",
+      "teorema-7",
+      "demostracion-teorema-7",
+      "demostracion-corolario-7-3"
+    ],
+    "used_terms": [
+      "definicion-13"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-3-3",
+    "type": "Proposición",
+    "name": "Proposición 3.3",
+    "definition": "Mientras que el morfé está presente y es necesario en toda intuición sensible, la sensación no es necesaria sino contingente.",
+    "displayName": "Proposición 3.3",
+    "used_by": [],
+    "used_terms": [
+      "definicion-14",
+      "definicion-13",
+      "definicion-15"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-16",
+    "type": "Definición",
+    "name": "Definición 16. Representación empírica",
+    "definition": "Representación con una referencia a las cosas por medio de sensación.",
+    "displayName": "Representación empírica",
+    "used_by": [
+      "proposicion-3-4",
+      "proposicion-3-6"
+    ],
+    "used_terms": [
+      "atomo-logico-1",
+      "definicion-15"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-17",
+    "type": "Definición",
+    "name": "Definición 17. Representación pura",
+    "definition": "Representación que no presupone ninguna sensación.",
+    "displayName": "Representación pura",
+    "used_by": [
+      "proposicion-3-5",
+      "demostracion-teorema-2",
+      "demostracion-teorema-4"
+    ],
+    "used_terms": [
+      "atomo-logico-1",
+      "definicion-15"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-3-4",
+    "type": "Proposición",
+    "name": "Proposición 3.4",
+    "definition": "Toda representación empírica refiere de una u otra manera a una intuición empírica.",
+    "displayName": "Proposición 3.4",
+    "used_by": [],
+    "used_terms": [
+      "definicion-16",
+      "definicion-18"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-3-5",
+    "type": "Proposición",
+    "name": "Proposición 3.5",
+    "definition": "La única intuición sensible pura que se puede plantear es aquella en la cual la referencia de la intuición a la cosa no es por medio de la sensación, sino por el morfé.",
+    "displayName": "Proposición 3.5",
+    "used_by": [],
+    "used_terms": [
+      "definicion-13",
+      "definicion-17",
+      "definicion-15",
+      "definicion-14"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-18",
+    "type": "Definición",
+    "name": "Definición 18. Apariencia",
+    "definition": "Cosa indeterminada a la que refiere una intuición empírica.",
+    "displayName": "Apariencia",
+    "used_by": [
+      "proposicion-3-6",
+      "proposicion-3-7",
+      "teorema-1",
+      "teorema-3",
+      "definicion-33",
+      "corolario-6-2",
+      "corolario-7-3",
+      "demostracion-corolario-7-3",
+      "definicion-52"
+    ],
+    "used_terms": [
+      "proposicion-3-4"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-3-6",
+    "type": "Proposición",
+    "name": "Proposición 3.6",
+    "definition": "Toda representación empírica refiere, de una u otra manera, a una apariencia.",
+    "displayName": "Proposición 3.6",
+    "used_by": [],
+    "used_terms": [
+      "definicion-16",
+      "definicion-18"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-3-7",
+    "type": "Proposición",
+    "name": "Proposición 3.7",
+    "definition": "Las condiciones del morfé de la intuición sensible son también condiciones necesarias de toda referencia a una apariencia.",
+    "displayName": "Proposición 3.7",
+    "used_by": [],
+    "used_terms": [
+      "definicion-14",
+      "definicion-18"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-19",
+    "type": "Definición",
+    "name": "Definición 19. Sujeto empírico",
+    "definition": "Apariencia con la que nos referimos a nosotros mismos.",
+    "displayName": "Sujeto empírico",
+    "used_by": [
+      "definicion-20",
+      "definicion-21",
+      "demostracion-teorema-1",
+      "demostracion-teorema-3",
+      "teorema-12",
+      "definicion-56"
+    ],
+    "used_terms": [
+      "definicion-18"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-20",
+    "type": "Definición",
+    "name": "Definición 20. Intuición interna",
+    "definition": "Intuición sensible con una referencia intrínseca al sujeto empírico.",
+    "displayName": "Intuición interna",
+    "used_by": [],
+    "used_terms": [
+      "definicion-13",
+      "definicion-19"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-21",
+    "type": "Definición",
+    "name": "Definición 21. Intuición externa",
+    "definition": "Intuición sensible con una referencia extrínseca al sujeto empírico.",
+    "displayName": "Intuición externa",
+    "used_by": [
+      "demostracion-teorema-1",
+      "axioma-2",
+      "proposicion-3-8"
+    ],
+    "used_terms": [
+      "definicion-13",
+      "definicion-19"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-22",
+    "type": "Definición",
+    "name": "Definición 22. Apariencias externas",
+    "definition": "Apariencias a las que refiere una intuición empírica externa.",
+    "displayName": "Apariencias externas",
+    "used_by": [
+      "demostracion-teorema-1"
+    ],
+    "used_terms": [
+      "definicion-18"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "axioma-2",
+    "type": "Axioma",
+    "name": "Axioma 2. Primer axioma gnoseológico del morfé",
+    "definition": "El morfé de toda intuición externa es el espacio.",
+    "displayName": "Primer axioma gnoseológico del morfé",
+    "used_by": [
+      "demostracion-teorema-1",
+      "demostracion-teorema-2",
+      "demostracion-teorema-5"
+    ],
+    "used_terms": [
+      "definicion-14",
+      "definicion-21"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "teorema-1",
+    "type": "Teorema",
+    "name": "Teorema 1",
+    "definition": "Toda apariencia externa tiene forma espacial.",
+    "displayName": "Teorema 1",
+    "used_by": [],
+    "used_terms": [
+      "definicion-22"
+    ],
+    "hasProof": true,
+    "proofFor": null
+  },
+  {
+    "id": "demostracion-teorema-1",
+    "type": "Demostración",
+    "name": "Demostración de Teorema 1",
+    "definition": "Apariencia externa es la cosa indeterminada a la que la intuición empírica externa refiere de manera inmediata, es decir, una cosa a la que una intuición externa (intuición con una referencia extrínseca al sujeto empírico) refiere por medio de sensación. Por definición, toda apariencia externa presupone necesariamente una referencia mediante una intuición empírica externa: siempre que nos refiramos a una apariencia externa precisamos una mediación a través de esas intuiciones empírica externas. Resulta que el primer axioma gnoseológico del morfé (Axioma 2) impone a toda intuición externa el espacio, es decir, es condición de posibilidad de la intuición externa el tener forma espacial. Puesto que toda referencia a las apariencias es mediante una intuición externa, aunque empírica, concluimos que toda referencia a las apariencias externas es siempre mediante una representación con forma espacial. En acuerdo con el postulado de completitud del modelo de filosofía trascendental (Postulado 6) las apariencias no deben ser entendidas como cosas en sí sino que son cosas de las que pretendemos alcanzar cogniciones (puesto que las intuiciones sensibles son gnoseológicamente posibles gracias al axioma empirista, Axioma 1), por lo que esta forma espacial de toda referencia a las apariencias externas se debe a que las apariencias, en tanto que pretendidos objetos de cognición, también tienen forma espacial, y puesto que toda adecuación de la representación con la cosa a la que refieren es verdad (Postulado 5) concluimos que es apodícticamente verdadero que toda apariencia externa tiene forma espacial.",
+    "displayName": "Demostración de Teorema 1",
+    "used_by": [],
+    "used_terms": [
+      "definicion-22",
+      "definicion-21",
+      "definicion-19",
+      "definicion-15",
+      "axioma-2",
+      "postulado-6",
+      "definicion-11",
+      "definicion-32",
+      "definicion-13",
+      "axioma-1",
+      "postulado-5"
+    ],
+    "hasProof": false,
+    "proofFor": "teorema-1"
   },
   {
     "id": "teorema-2",
@@ -49,8 +1105,10 @@
     "name": "Teorema 2",
     "definition": "El espacio es una intuición sensible pura.",
     "displayName": "Teorema 2",
-    "used_by": ["demostracion-teorema-2"],
-    "used_terms": ["definicion-13"],
+    "used_by": [],
+    "used_terms": [
+      "definicion-13"
+    ],
     "hasProof": true,
     "proofFor": null
   },
@@ -61,51 +1119,129 @@
     "definition": "Una representación pura es aquella que no presupone sensación. El morfé de la intuición sensible, en tanto que condición de posibilidad (forma) de la intuición sensible, no presupone necesariamente a la sensación (por eso decimos que la sensación es condición de factualidad o materia y no de posibilidad de la intuición sensible). Una intuición sensible que se refiere a una cosa a través del morfé y no de la sensación la entendemos como intuición sensible pura. El espacio, de acuerdo con el primer axioma trascendental del morfé (Axioma 2) , es el morfé de toda intuición externa, por lo que el espacio entendido como una representación es, también, una intuición sensible pura.",
     "displayName": "Demostración de Teorema 2",
     "used_by": [],
-    "used_terms": ["definicion-17", "definicion-15", "definicion-14", "definicion-13", "axioma-2"],
+    "used_terms": [
+      "definicion-17",
+      "definicion-15",
+      "definicion-14",
+      "definicion-13",
+      "axioma-2"
+    ],
     "hasProof": false,
     "proofFor": "teorema-2"
   },
   {
-    "id": "axioma-2",
+    "id": "proposicion-3-8",
+    "type": "Proposición",
+    "name": "Proposición 3.8",
+    "definition": "La corología como ciencia que contiene juicios sintéticos a priori presupone de manera necesaria al espacio como forma de toda intuición externa.",
+    "displayName": "Proposición 3.8",
+    "used_by": [],
+    "used_terms": [
+      "definicion-2",
+      "definicion-5",
+      "definicion-21"
+    ],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "axioma-3",
     "type": "Axioma",
-    "name": "Axioma 2. Primer axioma gnoseológico del morfé",
-    "definition": "El morfé de toda intuición externa es el espacio.",
-    "displayName": "Primer axioma gnoseológico del morfé",
-    "used_by": ["demostracion-teorema-2"],
-    "used_terms": ["definicion-14", "definicion-21"],
+    "name": "Axioma 3. Segundo axioma gnoseológico del morfé",
+    "definition": "El morfé de toda intuición sensible es el tiempo.",
+    "displayName": "Segundo axioma gnoseológico del morfé",
+    "used_by": [
+      "demostracion-teorema-3",
+      "demostracion-teorema-4",
+      "demostracion-teorema-5"
+    ],
+    "used_terms": [
+      "definicion-14",
+      "definicion-13"
+    ],
     "hasProof": false,
     "proofFor": null
   },
   {
-    "id": "definicion-3",
-    "type": "Definición",
-    "name": "Definición 3. Intuición",
-    "definition": "Representación que refiere a las cosas de manera inmediata.",
-    "displayName": "Intuición",
-    "used_by": ["definicion-13"],
-    "used_terms": ["atomo-logico-1", "atomo-logico-2"],
-    "hasProof": false,
+    "id": "teorema-3",
+    "type": "Teorema",
+    "name": "Teorema 3",
+    "definition": "Toda apariencia, tanto apariencias externas como sujeto interno, tienen forma temporal.",
+    "displayName": "Teorema 3",
+    "used_by": [],
+    "used_terms": [
+      "definicion-18",
+      "definicion-22",
+      "definicion-19"
+    ],
+    "hasProof": true,
     "proofFor": null
   },
   {
-    "id": "definicion-12",
-    "type": "Definición",
-    "name": "Definición 12. Multiplicidad de la intuición",
-    "definition": "Representaciones que componen una intuición.",
-    "displayName": "Multiplicidad de la intuición",
-    "used_by": ["definicion-13"],
-    "used_terms": ["definicion-3"],
+    "id": "demostracion-teorema-3",
+    "type": "Demostración",
+    "name": "Demostración de Teorema 3",
+    "definition": "Apariencia, tanto externa como interna, es la cosa indeterminada a la que la intuición empírica refiere de manera inmediata, es decir, una cosa a la que una intuición (tanto externa como interna) refiere por medio de sensación. Por definición, toda apariencia presupone necesariamente una referencia mediante una intuición empírica: siempre que nos refiramos a una apariencia precisamos una mediación a través de esas intuiciones empíricas. Resulta que el segundo axioma gnoseológico del morfé (Axioma 3) impone a toda intuición el tiempo, es decir, es condición de posibilidad de la intuición el tener forma temporal. Puesto que toda referencia a las apariencias es mediante una intuición, aunque empírica, concluimos que toda referencia a las apariencias es siempre mediante una representación con forma temporal. En acuerdo con el postulado de completitud del modelo de filosofía trascendental (Postulado 6) las apariencias no deben ser entendidas como cosas en sí sino que son cosas de las que pretendemos alcanzar cogniciones (puesto que las intuiciones sensibles son gnoseológicamente posibles gracias al axioma empirista, Axioma 1), por lo que esta forma temporal de toda referencia a las apariencias se debe a que las apariencias, en tanto que pretendidos objetos de cognición, también tienen forma temporal, y puesto que toda adecuación de la representación con la cosa a la que refieren es verdad (Postulado 5) concluimos que es apodícticamente verdadero que toda apariencia tiene forma temporal. Puesto que las apariencias se denominan apariencias externas y sujeto empírico en función de si la intuición es externa o interna, tanto las apariencias externas como el sujeto empírico tienen forma temporal.",
+    "displayName": "Demostración de Teorema 3",
+    "used_by": [],
+    "used_terms": [
+      "definicion-18",
+      "definicion-15",
+      "axioma-3",
+      "postulado-6",
+      "definicion-11",
+      "definicion-32",
+      "definicion-13",
+      "axioma-1",
+      "postulado-5",
+      "definicion-22",
+      "definicion-19"
+    ],
     "hasProof": false,
+    "proofFor": "teorema-3"
+  },
+  {
+    "id": "teorema-4",
+    "type": "Teorema",
+    "name": "Teorema 4",
+    "definition": "El tiempo es una intuición pura sensible.",
+    "displayName": "Teorema 4",
+    "used_by": [],
+    "used_terms": [
+      "definicion-13"
+    ],
+    "hasProof": true,
     "proofFor": null
   },
   {
-    "id": "atomo-logico-3",
-    "type": "Átomo lógico",
-    "name": "Átomo gnoseológico 3. Sensibilidad",
-    "definition": "Facultad gnoseológica de la receptividad. Este término es un átomo gnoseológico y no se define.",
-    "displayName": "Sensibilidad",
-    "used_by": ["definicion-13"],
-    "used_terms": [],
+    "id": "demostracion-teorema-4",
+    "type": "Demostración",
+    "name": "Demostración de Teorema 4",
+    "definition": "Una representación pura es aquella que no presupone sensación. El morfé de la intuición sensible, en tanto que condición de posibilidad (forma) de la intuición sensible, no presupone necesariamente a la sensación (por eso decimos que la sensación es condición de factualidad o materia y no de posibilidad de la intuición sensible). Una intuición sensible que se refiere a una cosa a través del morfé y no de la sensación la entendemos como intuición sensible pura. El tiempo, de acuerdo con el segundo axioma trascendental del morfé (Axioma 3), es el morfé de toda intuición, por lo que el tiempo entendido como una representación es, también, una intuición sensible pura.",
+    "displayName": "Demostración de Teorema 4",
+    "used_by": [],
+    "used_terms": [
+      "definicion-17",
+      "definicion-15",
+      "definicion-14",
+      "definicion-13",
+      "axioma-3"
+    ],
+    "hasProof": false,
+    "proofFor": "teorema-4"
+  },
+  {
+    "id": "proposicion-3-9",
+    "type": "Proposición",
+    "name": "Proposición 3.9",
+    "definition": "La cronología como ciencia que contiene juicios sintéticos a priori presupone de manera necesaria al tiempo como forma de toda intuición.",
+    "displayName": "Proposición 3.9",
+    "used_by": [],
+    "used_terms": [
+      "definicion-2",
+      "definicion-5",
+      "definicion-3"
+    ],
     "hasProof": false,
     "proofFor": null
   }
