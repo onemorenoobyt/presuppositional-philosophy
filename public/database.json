@@ -1,0 +1,112 @@
+[
+  {
+    "id": "postulado-1",
+    "type": "Postulado",
+    "name": "Postulado 1. Principio de contradicción",
+    "definition": "En todo juicio problemático, es imposible que el predicado contradiga al sujeto.",
+    "displayName": "Principio de contradicción",
+    "used_by": ["proposicion-2-1"],
+    "used_terms": [],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-1",
+    "type": "Definición",
+    "name": "Definición 1. Juicio analítico",
+    "definition": "Juicio categórico en el que la intensión de la concepción del predicado está contenida en la intensión de la concepción del sujeto.",
+    "displayName": "Juicio analítico",
+    "used_by": ["proposicion-2-1"],
+    "used_terms": [],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "proposicion-2-1",
+    "type": "Proposición",
+    "name": "Proposición 2.1",
+    "definition": "Los juicios analíticos son apodícticamente verdaderos por medio meramente del principio de contradicción, puesto que su falsificación es lógicamente imposible.",
+    "displayName": "Proposición 2.1",
+    "used_by": [],
+    "used_terms": ["definicion-1", "postulado-1"],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-13",
+    "type": "Definición",
+    "name": "Definición 13. Intuición sensible",
+    "definition": "Intuición cuya multiplicidad de la intuición se origina en la sensibilidad.",
+    "displayName": "Intuición sensible",
+    "used_by": ["teorema-2", "axioma-3"],
+    "used_terms": ["definicion-3", "definicion-12", "atomo-logico-3"],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "teorema-2",
+    "type": "Teorema",
+    "name": "Teorema 2",
+    "definition": "El espacio es una intuición sensible pura.",
+    "displayName": "Teorema 2",
+    "used_by": ["demostracion-teorema-2"],
+    "used_terms": ["definicion-13"],
+    "hasProof": true,
+    "proofFor": null
+  },
+  {
+    "id": "demostracion-teorema-2",
+    "type": "Demostración",
+    "name": "Demostración de Teorema 2",
+    "definition": "Una representación pura es aquella que no presupone sensación. El morfé de la intuición sensible, en tanto que condición de posibilidad (forma) de la intuición sensible, no presupone necesariamente a la sensación (por eso decimos que la sensación es condición de factualidad o materia y no de posibilidad de la intuición sensible). Una intuición sensible que se refiere a una cosa a través del morfé y no de la sensación la entendemos como intuición sensible pura. El espacio, de acuerdo con el primer axioma trascendental del morfé (Axioma 2) , es el morfé de toda intuición externa, por lo que el espacio entendido como una representación es, también, una intuición sensible pura.",
+    "displayName": "Demostración de Teorema 2",
+    "used_by": [],
+    "used_terms": ["definicion-17", "definicion-15", "definicion-14", "definicion-13", "axioma-2"],
+    "hasProof": false,
+    "proofFor": "teorema-2"
+  },
+  {
+    "id": "axioma-2",
+    "type": "Axioma",
+    "name": "Axioma 2. Primer axioma gnoseológico del morfé",
+    "definition": "El morfé de toda intuición externa es el espacio.",
+    "displayName": "Primer axioma gnoseológico del morfé",
+    "used_by": ["demostracion-teorema-2"],
+    "used_terms": ["definicion-14", "definicion-21"],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-3",
+    "type": "Definición",
+    "name": "Definición 3. Intuición",
+    "definition": "Representación que refiere a las cosas de manera inmediata.",
+    "displayName": "Intuición",
+    "used_by": ["definicion-13"],
+    "used_terms": ["atomo-logico-1", "atomo-logico-2"],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "definicion-12",
+    "type": "Definición",
+    "name": "Definición 12. Multiplicidad de la intuición",
+    "definition": "Representaciones que componen una intuición.",
+    "displayName": "Multiplicidad de la intuición",
+    "used_by": ["definicion-13"],
+    "used_terms": ["definicion-3"],
+    "hasProof": false,
+    "proofFor": null
+  },
+  {
+    "id": "atomo-logico-3",
+    "type": "Átomo lógico",
+    "name": "Átomo gnoseológico 3. Sensibilidad",
+    "definition": "Facultad gnoseológica de la receptividad. Este término es un átomo gnoseológico y no se define.",
+    "displayName": "Sensibilidad",
+    "used_by": ["definicion-13"],
+    "used_terms": [],
+    "hasProof": false,
+    "proofFor": null
+  }
+]
