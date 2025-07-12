@@ -1,4 +1,3 @@
-// En src/components/GraphPanel.tsx
 import React, { useEffect } from 'react';
 import ReactFlow, {
   useNodesState,
@@ -22,37 +21,37 @@ const GraphPanel: React.FC = () => {
 
     useEffect(() => {
         if (!activeTermId || !termsMap.has(activeTermId)) {
-            setNodes([]);
-            setEdges([]);
-            return;
+            setNodes([]); setEdges([]); return;
         }
 
         const activeTerm = termsMap.get(activeTermId)!;
-        
-        // ---- LA CORRECCIÓN ESTÁ AQUÍ ----
         const newNodes: Node<any>[] = [];
         const newEdges: Edge<any>[] = [];
-        // ---------------------------------
-
         const addedNodeIds = new Set<string>();
 
         const addNode = (term: EnrichedTerm, x: number, y: number) => {
-            if (!addedNodeIds.has(term.id)) {
-                newNodes.push({
-                    id: term.id,
-                    position: { x, y },
-                    data: { label: term.displayName },
-                    style: {
-                        backgroundColor: termTypeStyles[term.type]?.split(' ')[0].replace('bg-', '#'),
-                        color: termTypeStyles[term.type]?.includes('text-white') ? 'white' : '#191817',
-                        border: `2px solid ${activeTerm.id === term.id ? '#D4AF37' : 'transparent'}`,
-                        padding: '10px 15px',
-                        borderRadius: '8px',
-                        fontSize: 12,
-                    }
-                });
-                addedNodeIds.add(term.id);
-            }
+            if (addedNodeIds.has(term.id)) return;
+            
+            const styleClass = termTypeStyles[term.type] || 'bg-gray-200 text-gray-800';
+            const backgroundColor = styleClass.split(' ')[0].replace('bg-', '#');
+            const color = styleClass.includes('text-white') ? 'white' : '#191817';
+
+            newNodes.push({
+                id: term.id,
+                position: { x, y },
+                data: { label: term.displayName },
+                style: {
+                    backgroundColor,
+                    color,
+                    border: `2px solid ${activeTerm.id === term.id ? '#D4AF37' : 'transparent'}`,
+                    padding: '10px 15px',
+                    borderRadius: '8px',
+                    fontSize: 12,
+                    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+                    transition: 'box-shadow 0.2s ease-in-out',
+                }
+            });
+            addedNodeIds.add(term.id);
         };
 
         addNode(activeTerm, 0, 0);
@@ -61,12 +60,7 @@ const GraphPanel: React.FC = () => {
             const term = termsMap.get(id);
             if (term) {
                 addNode(term, -350, i * 120 - (activeTerm.used_terms.length - 1) * 60);
-                newEdges.push({
-                    id: `e-${id}-${activeTerm.id}`,
-                    source: id,
-                    target: activeTerm.id,
-                    markerEnd: { type: MarkerType.ArrowClosed, color: '#3A5A40' },
-                });
+                newEdges.push({ id: `e-${id}-${activeTerm.id}`, source: id, target: activeTerm.id, markerEnd: { type: MarkerType.ArrowClosed, color: '#3A5A40' } });
             }
         });
 
@@ -74,13 +68,7 @@ const GraphPanel: React.FC = () => {
             const term = termsMap.get(id);
             if (term) {
                 addNode(term, 350, i * 120 - (activeTerm.used_by.length - 1) * 60);
-                newEdges.push({
-                    id: `e-${activeTerm.id}-${id}`,
-                    source: activeTerm.id,
-                    target: id,
-                    markerEnd: { type: MarkerType.ArrowClosed, color: '#588157' },
-                    style: { strokeDasharray: '5 5' }
-                });
+                newEdges.push({ id: `e-${activeTerm.id}-${id}`, source: activeTerm.id, target: id, markerEnd: { type: MarkerType.ArrowClosed, color: '#588157' }, style: { strokeDasharray: '5 5' } });
             }
         });
 
@@ -106,8 +94,8 @@ const GraphPanel: React.FC = () => {
                 pannable 
                 nodeColor={(node: Node) => {
                     const term = termsMap.get(node.id);
-                    const styleClass = term ? termTypeStyles[term.type] : null;
-                    return styleClass ? styleClass.split(' ')[0].replace('bg-', '#') : '#cccccc';
+                    const styleClass = term ? termTypeStyles[term.type] : 'bg-gray-300';
+                    return styleClass.split(' ')[0].replace('bg-', '#');
                 }}
             />
             <Background />
