@@ -1,42 +1,47 @@
 // En src/App.tsx
 import { Routes, Route } from 'react-router-dom';
 import { KnowledgeGraphProvider, useAppContainer } from './context/KnowledgeGraphContext';
+import IndexPanel from './components/IndexPanel';
+import AnalysisPanel from './components/AnalysisPanel';
+// Por ahora no importamos GraphPanel para mantenerlo simple
 
-// 1. Este es tu código anterior, ahora como un componente interno.
 function MainLayout() {
-  const { isLoading } = useAppContainer(); // Usamos el hook para saber si los datos están listos
+  const { isLoading } = useAppContainer();
 
-  // Mostramos un mensaje de carga mientras se obtienen los datos.
   if (isLoading) {
     return (
-      <div className="flex h-screen w-screen items-center justify-center">
+      <div className="flex h-screen w-screen items-center justify-center bg-background">
         <p className="text-lg text-primary animate-pulse">Cargando conocimiento...</p>
       </div>
     );
   }
 
-  // Una vez cargado, mostramos el layout principal.
-  // Por ahora, es solo el título, pero aquí irán los paneles.
   return (
-    <div className="p-8">
-      <h1 className="text-4xl font-serif text-primary">
-        Glosario de Filosofía Trascendental
-      </h1>
-      <p className="mt-4">
-        Datos cargados. Listo para construir la UI.
-      </p>
+    <div className="h-screen w-screen grid grid-cols-12 font-sans">
+      {/* Panel de Índice */}
+      <div className="col-span-3 h-full border-r border-gray-200 bg-gray-50/50 overflow-y-auto">
+        <IndexPanel />
+      </div>
+
+      {/* Panel de Contenido Principal */}
+      <div className="col-span-9 h-full flex flex-col">
+        {/* Dejamos espacio para el grafo, por ahora vacío */}
+        <div className="h-2/3 border-b-2 border-accent/50 bg-gray-100/80">
+          {/* GraphPanel irá aquí */}
+        </div>
+        {/* Panel de Análisis */}
+        <div className="h-1/3 bg-white">
+          <AnalysisPanel />
+        </div>
+      </div>
     </div>
   );
 }
 
-// 2. Este es el componente principal que se exporta.
 function App() {
   return (
-    // 3. El proveedor de contexto envuelve todo.
     <KnowledgeGraphProvider>
-      {/* 4. El sistema de rutas define qué se muestra. */}
       <Routes>
-        {/* Para cualquier ruta, muestra nuestro MainLayout. */}
         <Route path="*" element={<MainLayout />} />
       </Routes>
     </KnowledgeGraphProvider>
