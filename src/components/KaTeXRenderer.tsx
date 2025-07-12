@@ -8,18 +8,24 @@ interface KaTeXRendererProps {
 }
 
 const KaTeXRenderer: React.FC<KaTeXRendererProps> = ({ text }) => {
-  const { termsMap, setActiveTermId } = useAppContainer();
+  const { setActiveTermId, termMentionMap } = useAppContainer();
 
   const renderedHtml = useMemo(() => {
-    const referenceRegex = /(Axioma|Teorema|Definición|Proposición|Postulado|Corolario|Lema|Conjetura)\s+(\d+(\.\d+)*)/gi;
+    if (termMentionMap.size === 0) return { __html: text };
+    
+    // Escapa los caracteres especiales para la regex y ordena por longitud descendente
+    const allMentions = Array.from(termMentionMap.keys())
+      .sort((a, b) => b.length - a.length)
+      .map(mention => mention.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      
+    const regex = new RegExp(`\\b(${allMentions.join('|')})\\b`, 'gi');
+    
     let processedText = text;
 
-    processedText = processedText.replace(referenceRegex, (match, type, number) => {
-      const termId = `${type.toLowerCase().replace(/ó/g, 'o').replace(/á/g, 'a')}-${number.replace(/\./g, '-')}`;
-      const term = termsMap.get(termId);
-
-      return term 
-        ? `<button class="text-primary font-bold hover:underline" data-term-id="${term.id}">${match}</button>`
+    processedText = processedText.replace(regex, (match) => {
+      const termId = termMentionMap.get(match.toLowerCase());
+      return termId
+        ? `<button class="text-primary font-semibold hover:underline" data-term-id="${termId}">${match}</button>`
         : match;
     });
 
@@ -28,7 +34,7 @@ const KaTeXRenderer: React.FC<KaTeXRendererProps> = ({ text }) => {
     });
 
     return { __html: processedText };
-  }, [text, termsMap]);
+  }, [text, termMentionMap]);
 
   const handleContentClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;

@@ -1,9 +1,12 @@
+// En src/components/IndexPanel.tsx
 import React, { useState, useMemo } from 'react';
 import { useAppContainer } from '../context/KnowledgeGraphContext';
 import { twMerge } from 'tailwind-merge';
 import { termTypeStyles } from '../logic/styles';
+import { TERM_TYPES } from '../types'; // Importando la lista canónica de tipos
+import type { RawTerm } from '../types';
 
-// Componente interno para el "esqueleto" de carga
+// Componente de UI para mostrar mientras los datos principales cargan
 const SkeletonLoader: React.FC = () => (
   <div className="space-y-3 mt-4 animate-pulse">
     {[...Array(15)].map((_, i) => (
@@ -18,13 +21,35 @@ const SkeletonLoader: React.FC = () => (
 const IndexPanel: React.FC = () => {
   const { terms, isLoading, setActiveTermId, activeTermId, fuse } = useAppContainer();
   const [searchTerm, setSearchTerm] = useState('');
+  
+  // El estado de los filtros ahora se inicializa de forma segura desde TERM_TYPES
+  const [activeFilters, setActiveFilters] = useState<Set<RawTerm['type']>>(new Set(TERM_TYPES));
 
-  const searchResults = useMemo(() => {
-    if (!searchTerm.trim() || !fuse) return terms;
-    return fuse.search(searchTerm).map(result => result.item);
-  }, [searchTerm, terms, fuse]);
+  // Maneja el cambio de estado de un checkbox de filtro
+  const handleFilterChange = (type: RawTerm['type']) => {
+    setActiveFilters(prevFilters => {
+      const newFilters = new Set(prevFilters);
+      if (newFilters.has(type)) {
+        newFilters.delete(type);
+      } else {
+        newFilters.add(type);
+      }
+      return newFilters;
+    });
+  };
 
-  // Si los datos están cargando, muestra el Skeleton Loader
+  // Memoiza el resultado de la búsqueda y el filtrado para optimizar el rendimiento
+  const filteredAndSortedTerms = useMemo(() => {
+    let results = terms;
+
+    if (searchTerm.trim() && fuse) {
+      results = fuse.search(searchTerm).map(result => result.item);
+    }
+
+    return results.filter(term => activeFilters.has(term.type));
+  }, [searchTerm, terms, fuse, activeFilters]);
+
+  // Muestra el Skeleton Loader si los datos aún no están listos
   if (isLoading) {
     return (
       <div className="p-4 h-full flex flex-col">
@@ -45,9 +70,34 @@ const IndexPanel: React.FC = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
         className="w-full mt-2 p-2 border rounded-md focus:ring-2 focus:ring-accent/50 focus:outline-none"
       />
-      <ul className="mt-4 overflow-y-auto flex-grow pr-2">
-        {searchResults.length > 0 ? (
-          searchResults.map(term => (
+      
+      {/* Sección de Filtros por Tipo */}
+      <div className="mt-4">
+        <div className="text-sm font-semibold text-gray-600 mb-2">Filtrar por tipo:</div>
+        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+          {TERM_TYPES.map((type) => (
+            <label key={type} className="flex items-center space-x-2 text-xs cursor-pointer">
+              <input
+                type="checkbox"
+                checked={activeFilters.has(type)}
+                onChange={() => handleFilterChange(type)}
+                className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+              />
+              <span>{type}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Contador de Resultados */}
+      <p className="mt-4 text-xs text-gray-500 font-medium">
+        {filteredAndSortedTerms.length} {filteredAndSortedTerms.length === 1 ? 'resultado' : 'resultados'}
+      </p>
+
+      {/* Lista de Términos Filtrados */}
+      <ul className="mt-2 overflow-y-auto flex-grow pr-2">
+        {filteredAndSortedTerms.length > 0 ? (
+          filteredAndSortedTerms.map(term => (
             <li key={term.id}>
               <button
                 onClick={() => setActiveTermId(term.id)}
@@ -62,7 +112,7 @@ const IndexPanel: React.FC = () => {
           ))
         ) : (
           <li className="p-4 text-center text-sm text-gray-500">
-            No se encontraron resultados para "{searchTerm}".
+            No se encontraron resultados.
           </li>
         )}
       </ul>
