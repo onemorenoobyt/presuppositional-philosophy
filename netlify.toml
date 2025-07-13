@@ -1,4 +1,15 @@
-# En netlify.toml
+# Archivo netlify.toml
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Configuración para el servidor de desarrollo local de Netlify
+[dev]
+  command = "npm run dev" # Comando para iniciar Vite
+  port = 8888             # Puerto donde Netlify servirá todo
+  targetPort = 5173         # Puerto donde Vite se ejecuta
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

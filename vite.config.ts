@@ -5,8 +5,9 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './', 
   plugins: [
     react(),
-    tailwindcss(), // Correcto. Simple, limpio y al punto.
+    tailwindcss(), // <-- Lo dejamos simple. La configuración se leerá desde tailwind.config.ts
   ],
 })
