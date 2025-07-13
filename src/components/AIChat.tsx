@@ -1,6 +1,6 @@
 // En src/components/AIChat.tsx
 import React, { useState, useRef, useEffect } from 'react';
-import { Bot, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 import AIMessage from './AIMessage'; // <-- 1. Importar el nuevo componente
 
 interface Message {
