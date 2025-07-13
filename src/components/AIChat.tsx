@@ -10,7 +10,7 @@ interface Message {
 
 // Mensaje de bienvenida predefinido
 const welcomeMessage: Message = {
-  text: "¡Hola! Soy tu asistente de filosofía trascendental. Puedes preguntarme sobre cualquier concepto, relación o argumento contenido en el tratado. Todavía soy algo rudimentario por lo que es recomendable usar preguntas específicas y con la ortografía correcta.",
+  text: "¡Hola! Soy tu asistente de filosofía presuposicional. Puedes preguntarme sobre cualquier concepto, relación o argumento contenido en el tratado. Todavía soy algo rudimentario por lo que es recomendable usar preguntas específicas y con la ortografía correcta. No te fíes de mis respuestas, siempre es bueno acudir a los vídeos o a la comunidad de Discord de Kantian Project",
   isUser: false,
 };
 
