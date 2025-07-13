@@ -12,17 +12,15 @@ const KaTeXRenderer: React.FC<KaTeXRendererProps> = ({ text }) => {
 
   const renderedHtml = useMemo(() => {
     if (termMentionMap.size === 0) return { __html: text };
-    
-    // Escapa los caracteres especiales para la regex y ordena por longitud descendente
+
     const allMentions = Array.from(termMentionMap.keys())
       .sort((a, b) => b.length - a.length)
       .map(mention => mention.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
       
+    // LA CORRECCIÓN CLAVE: Añadimos \b al principio y al final del grupo.
     const regex = new RegExp(`\\b(${allMentions.join('|')})\\b`, 'gi');
     
-    let processedText = text;
-
-    processedText = processedText.replace(regex, (match) => {
+    let processedText = text.replace(regex, (match) => {
       const termId = termMentionMap.get(match.toLowerCase());
       return termId
         ? `<button class="text-primary font-semibold hover:underline" data-term-id="${termId}">${match}</button>`
