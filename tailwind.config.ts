@@ -1,11 +1,23 @@
 // En tailwind.config.ts
-import type { Config } from 'tailwindcss'
-import typography from '@tailwindcss/typography'
+import typography from '@tailwindcss/typography';
 
+/** @type {import('tailwindcss').Config} */
 export default {
-  // `content` no es necesario. El plugin de Vite lo gestiona automáticamente.
-  // `theme` no es necesario aquí, ya que lo estamos manejando en CSS con `@theme`.
-  plugins: [
-    typography(), // Se recomienda llamar al plugin como una función.
+  // En v4, 'content' es manejado por el plugin de Vite,
+  // por lo que no es estrictamente necesario aquí, pero añadirlo
+  // ayuda a la extensión de VS Code.
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
-} satisfies Config // <-- 'satisfies' es la forma moderna y preferida en TS.
+  
+  // No necesitamos la sección 'theme' aquí porque la definimos en index.css
+  theme: {
+    extend: {},
+  },
+
+  // Aquí registramos los plugins de JavaScript.
+  plugins: [
+    typography(),
+  ],
+}
