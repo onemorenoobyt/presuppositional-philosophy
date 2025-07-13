@@ -1,59 +1,46 @@
 // En src/components/AIMessage.tsx
 import React, { useMemo } from 'react';
 import { useAppContainer } from '../context/KnowledgeGraphContext';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import type { Components } from 'react-markdown'; // 1. Importar el tipo 'Components'
 
-interface AIMessageProps {
-  text: string;
-}
-
-const AIMessage: React.FC<AIMessageProps> = ({ text }) => {
+const AIMessage: React.FC<{ text: string }> = ({ text }) => {
   const { termMentionMap, setActiveTermId } = useAppContainer();
 
-  const parsedContent = useMemo(() => {
-    if (termMentionMap.size === 0) return [text];
+  // 2. Definimos nuestros componentes personalizados con los tipos correctos
+  const components: Components = useMemo(() => ({
+    // La firma del componente `a` (enlace) espera estos props
+    a: ({ node, ...props }) => {
+      // El contenido de texto del enlace está en el primer hijo del nodo
+      const textContent = node?.children[0]?.type === 'text' ? node.children[0].value : '';
+      const termId = termMentionMap.get(textContent.toLowerCase());
 
-    const allMentions = Array.from(termMentionMap.keys())
-      .sort((a, b) => b.length - a.length)
-      .map(mention => mention.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-    
-    // LA CORRECCIÓN CLAVE: Añadimos \b al principio y al final del grupo.
-    const regex = new RegExp(`\\b(${allMentions.join('|')})\\b`, 'gi');
-    
-    const parts = [];
-    let lastIndex = 0;
-    
-    const matches = text.matchAll(regex);
-
-    for (const match of matches) {
-      const matchedText = match[0];
-      const index = match.index!;
-
-      if (index > lastIndex) {
-        parts.push(text.substring(lastIndex, index));
+      if (termId) {
+        return (
+          <button
+            onClick={() => setActiveTermId(termId)}
+            className="text-primary font-semibold hover:underline bg-primary/10 px-1 py-0.5 rounded"
+          >
+            {textContent}
+          </button>
+        );
       }
+      // Si no es un término, renderiza un enlace normal pero con nuestros estilos
+      return <a {...props} className="text-secondary hover:underline" />;
+    },
+  }), [termMentionMap, setActiveTermId]);
 
-      const termId = termMentionMap.get(matchedText.toLowerCase());
-      parts.push(
-        <button
-          key={`${termId}-${index}`}
-          onClick={() => setActiveTermId(termId!)}
-          className="text-primary font-semibold hover:underline bg-primary/10 px-1 py-0.5 rounded"
-        >
-          {matchedText}
-        </button>
-      );
-      
-      lastIndex = index + matchedText.length;
-    }
-
-    if (lastIndex < text.length) {
-      parts.push(text.substring(lastIndex));
-    }
-
-    return parts;
-  }, [text, termMentionMap, setActiveTermId]);
-
-  return <div className="prose prose-sm max-w-none leading-relaxed">{parsedContent}</div>;
+  return (
+    <div className="prose prose-sm max-w-none leading-relaxed">
+      <ReactMarkdown
+        rehypePlugins={[rehypeRaw]}
+        components={components} // 3. Pasamos los componentes memoizados
+      >
+        {text}
+      </ReactMarkdown>
+    </div>
+  );
 };
 
 export default AIMessage;
