@@ -1,15 +1,18 @@
-# Archivo netlify.toml
+# En netlify.toml
 
+# Configuración para el build en producción (cuando haces push a Git)
 [build]
   command = "npm run build"
   publish = "dist"
 
-# Configuración para el servidor de desarrollo local de Netlify
+# Configuración para el servidor de desarrollo local (cuando ejecutas netlify dev)
 [dev]
-  command = "npm run dev" # Comando para iniciar Vite
-  port = 8888             # Puerto donde Netlify servirá todo
-  targetPort = 5173         # Puerto donde Vite se ejecuta
+  command = "npm run dev"   # Comando que Netlify ejecuta para iniciar tu app
+  targetPort = 5173         # El puerto en el que Vite se ejecuta
+  port = 8888               # El puerto que abrirás en tu navegador
+  framework = "vite"       # <-- LA LÍNEA MÁGICA: Le dice a Netlify cómo hablar con Vite
 
+# Reglas de redirección para la aplicación desplegada (y ahora manejadas correctamente por 'framework')
 [[redirects]]
   from = "/*"
   to = "/index.html"
