@@ -1,20 +1,25 @@
 // En src/components/AIChat.tsx
 import React, { useState, useRef, useEffect } from 'react';
 import { Send } from 'lucide-react';
-import AIMessage from './AIMessage'; // <-- 1. Importar el nuevo componente
+import AIMessage from './AIMessage';
 
 interface Message {
   text: string;
   isUser: boolean;
 }
 
+// Mensaje de bienvenida predefinido
+const welcomeMessage: Message = {
+  text: "¡Hola! Soy tu asistente de filosofía trascendental. Puedes preguntarme sobre cualquier concepto, relación o argumento contenido en el tratado. Todavía soy algo rudimentario por lo que es recomendable usar preguntas específicas y con la ortografía correcta.",
+  isUser: false,
+};
+
 const AIChat: React.FC = () => {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([welcomeMessage]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null); // Ref para auto-scroll
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Efecto para hacer scroll hacia abajo cuando llegan nuevos mensajes
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
@@ -41,7 +46,6 @@ const AIChat: React.FC = () => {
       }
 
       const data = await response.json();
-      
       const aiMessage: Message = { text: data.response || "No se recibió respuesta.", isUser: false };
       setMessages(prev => [...prev, aiMessage]);
 
@@ -60,17 +64,12 @@ const AIChat: React.FC = () => {
         {messages.map((msg, index) => (
           <div key={index} className={`flex my-2 ${msg.isUser ? 'justify-end' : 'justify-start'}`}>
             <div className={`p-3 rounded-lg max-w-lg ${msg.isUser ? 'bg-primary text-white' : 'bg-gray-200 text-text'}`}>
-              {/* 2. Lógica de Renderizado Condicional */}
-              {msg.isUser ? (
-                <p>{msg.text}</p>
-              ) : (
-                <AIMessage text={msg.text} /> // <-- Usamos el nuevo componente para la IA
-              )}
+              {msg.isUser ? <p>{msg.text}</p> : <AIMessage text={msg.text} />}
             </div>
           </div>
         ))}
         {isLoading && <div className="flex justify-start"><div className="p-3 rounded-lg bg-gray-200 text-text animate-pulse">...</div></div>}
-        <div ref={messagesEndRef} /> {/* Elemento vacío para el auto-scroll */}
+        <div ref={messagesEndRef} />
       </div>
       <form onSubmit={handleSubmit} className="p-4 border-t flex">
         <input
