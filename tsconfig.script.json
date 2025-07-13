@@ -1,0 +1,11 @@
+// En tsconfig.script.json
+{
+  "extends": "./tsconfig.node.json",
+  "compilerOptions": {
+    // Heredamos la configuración de tsconfig.node.json, pero sobreescribimos estas opciones:
+    "noEmit": false,
+    "allowImportingTsExtensions": false, // <-- LA CORRECCIÓN CLAVE: Desactivamos esta opción
+    "outDir": "dist-scripts"
+  },
+  "include": ["src/scripts/**/*.ts"]
+}
