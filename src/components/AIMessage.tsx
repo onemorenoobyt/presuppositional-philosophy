@@ -3,41 +3,74 @@ import React, { useMemo } from 'react';
 import { useAppContainer } from '../context/KnowledgeGraphContext';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-import type { Components } from 'react-markdown'; // 1. Importar el tipo 'Components'
+import type { Components } from 'react-markdown';
 
 const AIMessage: React.FC<{ text: string }> = ({ text }) => {
   const { termMentionMap, setActiveTermId } = useAppContainer();
 
-  // 2. Definimos nuestros componentes personalizados con los tipos correctos
-  const components: Components = useMemo(() => ({
-    // La firma del componente `a` (enlace) espera estos props
-    a: ({ node, ...props }) => {
-      // El contenido de texto del enlace está en el primer hijo del nodo
-      const textContent = node?.children[0]?.type === 'text' ? node.children[0].value : '';
-      const termId = termMentionMap.get(textContent.toLowerCase());
+  // Paso 1: Pre-procesar el texto para crear enlaces de ancla válidos.
+  const processedText = useMemo(() => {
+    if (termMentionMap.size === 0) return text;
 
-      if (termId) {
+    const allMentions = Array.from(termMentionMap.keys())
+      .sort((a, b) => b.length - a.length)
+      .map(mention => mention.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      
+    const regex = new RegExp(`\\b(${allMentions.join('|')})\\b`, 'gi');
+    
+    return text.replace(regex, (match) => {
+      const termId = termMentionMap.get(match.toLowerCase());
+      // Creamos un enlace de ancla con el prefijo #/term/
+      return termId ? `[${match}](#/term/${termId})` : match;
+    });
+  }, [text, termMentionMap]);
+
+  // Paso 2: Renderizador personalizado que intercepta nuestros enlaces de ancla.
+  const components: Components = useMemo(() => ({
+    a: ({ href, children }) => {
+      // CASO A: Es un enlace INTERNO que creamos nosotros.
+      if (href?.startsWith('#/term/')) {
+        const termId = href.replace('#/term/', '');
+        
+        const handleTermClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+          // Prevenimos la acción por defecto del navegador (que sería saltar a un ancla).
+          event.preventDefault(); 
+          // Ejecutamos nuestra propia lógica de navegación de la SPA.
+          setActiveTermId(termId);
+        };
+
         return (
-          <button
-            onClick={() => setActiveTermId(termId)}
-            className="text-primary font-semibold hover:underline bg-primary/10 px-1 py-0.5 rounded"
+          <a
+            href={`/term/${termId}`} // href semántico para accesibilidad
+            onClick={handleTermClick}
+            className="font-semibold !text-primary hover:!underline bg-primary/10 px-1 py-0.5 rounded cursor-pointer"
           >
-            {textContent}
-          </button>
+            {children}
+          </a>
         );
       }
-      // Si no es un término, renderiza un enlace normal pero con nuestros estilos
-      return <a {...props} className="text-secondary hover:underline" />;
+      
+      // CASO B: Es un enlace EXTERNO normal (http, https).
+      if (href?.startsWith('http')) {
+        return (
+          <a href={href} target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">
+            {children}
+          </a>
+        );
+      }
+
+      // CASO C (Fallback): Para cualquier otro tipo de enlace, muestra solo el texto.
+      return <>{children}</>;
     },
-  }), [termMentionMap, setActiveTermId]);
+  }), [setActiveTermId]);
 
   return (
     <div className="prose prose-sm max-w-none leading-relaxed">
       <ReactMarkdown
         rehypePlugins={[rehypeRaw]}
-        components={components} // 3. Pasamos los componentes memoizados
+        components={components}
       >
-        {text}
+        {processedText}
       </ReactMarkdown>
     </div>
   );
