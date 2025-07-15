@@ -9,20 +9,36 @@ import { Network, FileText, Bot, X } from 'lucide-react';
 
 const GraphPanel = React.lazy(() => import('./GraphPanel'));
 
+// Función de ayuda para truncar texto de forma inteligente.
+const smartTruncate = (text: string, maxLength: number): string => {
+  if (text.length <= maxLength) return text;
+  let truncated = text.substring(0, maxLength);
+  truncated = truncated.substring(0, Math.min(truncated.length, truncated.lastIndexOf(' ')));
+  return truncated + '...';
+};
+
 const MainLayout: React.FC = () => {
   const { isLoading, activeTermId, termsMap } = useAppContainer();
   const [isGraphVisible, setIsGraphVisible] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
+  // LA LÓGICA DE DERIVACIÓN CORRECTA ESTÁ AQUÍ
   const activeTerm = useMemo(() => {
     return activeTermId ? termsMap.get(activeTermId) : null;
   }, [activeTermId, termsMap]);
 
   const { seoTitle, seoDescription } = useMemo(() => {
-    const title = activeTerm ? activeTerm.name : undefined;
-    const description = activeTerm ? activeTerm.definition.substring(0, 160) + '...' : undefined;
+    if (!activeTerm) {
+      return { seoTitle: undefined, seoDescription: undefined };
+    }
+    
+    const title = activeTerm.name;
+    const prefix = `Definición de "${activeTerm.displayName}": `;
+    const fullText = prefix + activeTerm.definition;
+    const description = smartTruncate(fullText, 160);
+    
     return { seoTitle: title, seoDescription: description };
-  }, [activeTerm]);
+  }, [activeTerm]); // Esta lógica ahora depende de 'activeTerm'
 
   if (isLoading) {
     return (
@@ -34,20 +50,12 @@ const MainLayout: React.FC = () => {
 
   return (
     <div className="h-screen w-screen grid grid-cols-12 font-sans relative">
-      {/* 
-        AQUÍ ESTÁ LA CORRECCIÓN CLAVE:
-        Añadimos una `key` al componente SEO. Cuando `activeTermId` cambie, 
-        React destruirá el componente antiguo y montará uno nuevo desde cero, 
-        forzando la actualización del <head>.
-      */}
       <SEOHelmet key={activeTermId || 'home'} title={seoTitle} description={seoDescription} />
       
-      {/* Columna Izquierda: Panel de Índice */}
       <div className="col-span-3 h-full border-r border-gray-200 bg-gray-50/50 overflow-y-auto">
         <IndexPanel />
       </div>
 
-      {/* Columna Derecha: Contenido Principal (Análisis o Grafo) */}
       <div className="col-span-9 h-full flex flex-col relative">
         <div className="absolute top-2 right-2 z-10">
           <button
@@ -69,7 +77,6 @@ const MainLayout: React.FC = () => {
         )}
       </div>
 
-      {/* Botón y Panel de Chat Flotante */}
       <div className="absolute bottom-5 right-5 z-20 flex flex-col items-end">
         {isChatOpen && (
           <div className="w-96 h-[70vh] max-h-[70vh] mb-4 shadow-2xl rounded-lg border border-gray-200">
